@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+    <link rel = "stylesheet" href="style.css">
+    <style>
+        body {
+            margin-left: auto;
+            font-family:Arial, Helvetica, sans-serif;
+            padding: 25px;
+            color: black
+
+        }
+        .erro {
+            color: black;
+            font-size: 15px;
+            margin-left: 0%;
+            margin-bottom: 20px;
+            
+        }
+        input{
+            display: block;
+            margin-bottom: 6px;
+            padding: 9px;
+            width: 250px;
+        }
+        button {
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            padding: 10px 16px;
+            color: rgb(250, 250, 250);
+            background-color: rgb(46, 45, 45)
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Cadastro Pessoal </h2>
+        <form id = 'formulario'>
+            <p>Nome:</p>
+            <input type = 'text' id='nome'>
+            <div id = 'erroNome' class = 'erro'></div>
+
+            <p>Seu e-mail:</p>
+            <input type = 'text' id='email'>
+            <div id = 'erroEmail' class = 'erro'></div>
+
+            <p>Informe sua senha:</p>
+            <input type = 'password' id='senha'>
+            <div id = 'erroSenha' class = 'erro'></div>
+
+            <button type = 'submit'>Cadastrar</button>
+        </form>
+<script>
+    const form = document.getElementById('formulario');
+
+    form.addEventListener('submit', function(event){
+        event.preventDefault();
+
+
+        let nome = document.getElementById('nome').value;
+        let email = document.getElementById('email').value;
+        let senha = document.getElementById('senha').value;
+
+        document.getElementById('erroNome').textContent = '';
+        document.getElementById('erroEmail').textContent = '';
+        document.getElementById('erroSenha').textContent = '';
+
+        let temErro = false;
+
+        if (nome==''){
+            document.getElementById('erroNome').textContent = 'Digite seu Nome.';
+            temErro = true;
+        }
+
+        if (email.indexOf('@') === -1 || email.indexOf ('.') === -1){
+            document.getElementById('erroEmail').textContent = 'Email está inválido';
+            temErro = true;
+        }
+
+        if (senha.length < 8 ){
+            document.getElementById('erroSenha').textContent = 'A senha precisa conter no mínimo 8 caracteres.';
+            temErro = true;
+        }
+
+        if (!temErro){
+            alert('Cadastro concluído!');
+            formulario.reset();
+        }
+    });
+</script>
+    
+</body>
+</html>

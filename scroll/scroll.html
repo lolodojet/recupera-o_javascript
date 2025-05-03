@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Scroll</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: #333;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+    }
+
+    header a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+    }
+
+    section {
+      height: 100vh;
+      padding-top: 60px;
+      text-align: center;
+      font-size: 30px;
+    }
+
+    #parte1 { background: rgb(43, 9, 196); }
+    #parte2 { background: rgb(134, 25, 25); }
+    #parte3 { background: rgb(36, 128, 36); }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="#parte1">Parte 1</a>
+    <a href="#parte2">Parte 2</a>
+    <a href="#parte3">Parte 3</a>
+  </header>
+
+  <section id="parte1">Parte 1</section>
+  <section id="parte2">Parte 2</section>
+  <section id="parte3">Parte 3</section>
+
+  <script>
+    
+    document.querySelectorAll('header a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();  
+
+        const alvo = document.querySelector(this.getAttribute('href'));
+        alvo.scrollIntoView({ behavior: 'smooth' });  
+    });
+});
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>MenuLolo</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+    }
+
+    #menu {
+      width: 0;
+      height: 100vh;
+      background: #e41515;
+      color: white;
+      overflow: hidden;
+      position: fixed;
+      top: 0;
+      left: 0;
+      transition: 0.3s;
+    }
+
+    #menu a {
+      display: block;
+      padding: 20px;
+      color: white;
+      text-decoration: none;
+    }
+
+    #menu a:hover {
+      background: #1a1919;
+    }
+
+    #botao {
+      font-size: 25px;
+      padding: 10px;
+      display: block;
+      cursor: pointer;
+      color: #1753c4;
+    }
+  </style>
+</head>
+<body>
+
+  <span id="botao" onclick="abrir()">☰ Abrir Menu</span>
+
+  <div id="menu">
+    <a href="#" onclick="fechar()">✖ Fechar</a>
+    <a href="#">Sua conta</a>
+    <a href="#">Configurações</a>
+    <a href="#">Segurança</a>
+    <a href="#">Suporte</a>
+  </div>
+
+  <script>
+    function abrir() {
+      document.getElementById("menu").style.width = "180px";
+    }
+
+    function fechar() {
+      document.getElementById("menu").style.width = "0";
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Gráfico de Barras</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding: 30px;
+    }
+
+    #grafico {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 10px;
+      height: 300px;
+      border-left: 2px solid #333;
+      border-bottom: 2px solid #333;
+      padding: 10px;
+      margin-top: 30px;
+    }
+
+    .barra {
+      width: 30px;
+      background-color: #4CAF50;
+      text-align: center;
+      color: white;
+      font-size: 12px;
+      border-radius: 5px 5px 0 0;
+    }
+
+    button, input {
+      padding: 8px 12px;
+      margin: 10px;
+      font-size: 16px;
+    }
+
+    input {
+      width: 60px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Gráfico</h1>
+
+  <input type="number" id="valor" placeholder="Valor">
+  <button onclick="adicionarBarra()">Adicionar</button>
+
+  <div id="grafico"></div>
+
+  <script>
+    function adicionarBarra() {
+      let valor = document.getElementById('valor').value;
+
+      if (valor === '') {
+        alert('Digite um valor!');
+        return;
+      }
+
+      let barra = document.createElement('div');
+      barra.className = 'barra';
+      barra.style.height = valor * 2 + 'px'; 
+      barra.textContent = valor;
+
+      document.getElementById('grafico').appendChild(barra);
+
+      document.getElementById('valor').value = '';
+    }
+  </script>
+
+</body>
+</html>

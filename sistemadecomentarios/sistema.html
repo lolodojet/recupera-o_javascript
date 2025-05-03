@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Comentários</title>
+  <style>
+    body {
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      padding: 25px;
+    }
+
+    textarea {
+      width: 350px;
+      height: 90px;
+    }
+
+    #area {
+      margin-top: 20px;
+    }
+
+    p {
+      border: 1px solid #ca0a0a;
+      padding: 5px;
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Faça algum comentario</h2>
+
+  <textarea id="campo"></textarea><br>
+  <button onclick="comentar()">Enviar</button>
+
+  <div id="area"></div>
+
+  <script>
+    function comentar() {
+      let texto = document.getElementById("campo").value;
+
+      if (texto === "") {
+        alert("Digite algo!");
+        return;
+      }
+
+      let p = document.createElement("p");
+      p.textContent = texto;
+
+      document.getElementById("area").appendChild(p);
+
+      document.getElementById("campo").value = "";
+    }
+  </script>
+
+</body>
+</html>

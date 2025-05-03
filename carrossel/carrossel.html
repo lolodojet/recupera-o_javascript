@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Carrossel</title>
+  <style>
+    body {
+      text-align: center;
+      background-color: #2e055e;
+      font-family: sans-serif;
+      padding: 30px;
+    }
+
+    .carrossel {
+      width: 500px;
+      height: 300px;
+      margin: 20px auto;
+      position: relative;
+    }
+
+    .carrossel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .botoes {
+      margin-top: 10px;
+    }
+
+    .botoes button {
+      padding: 10px 20px;
+      font-size: 20px;
+      margin: 0 10px;
+      cursor: pointer;
+    }
+
+  </style>
+</head>
+<body>
+  <h1>Carrossel de Imagens</h1>
+  <div class="carrossel">
+    <img id="imagem" src="imagens/AN_Caitlyn-Arcane.jpg" alt="Imagem do Carrossel">
+    <div class="botoes">
+      <button onclick="voltar()">←</button>
+      <button onclick="avancar()">→</button>
+    </div>
+  </div>
+
+  <script>
+    let imagens = ["imagens/AN_Caitlyn-Arcane.jpg", "imagens/5e6f5380097c1cba5cf7ddc3482294ed27bafa67-5070x2160.jpg", "imagens/QjgqTEGgq8ZMhtLKmQ7THS.jpg"];
+    let atual = 0;
+    let tempo = 3000;
+
+    function mostrarImagem() {
+        document.getElementById('imagem').src = imagens[atual];
+    }
+
+    function avancar() {
+        atual++;
+        if (atual >= imagens.length) atual = 0;
+        mostrarImagem();
+    }
+
+    function voltar() {
+        atual--;
+        if (atual < 0) atual = imagens.length - 1;
+        mostrarImagem();
+    }
+
+    setInterval(avancar, tempo);
+  </script>
+</body>
+</html>

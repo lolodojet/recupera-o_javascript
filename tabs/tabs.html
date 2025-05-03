@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabs</title>
+    <style>
+        body {
+          font-family: sans-serif;
+          padding: 30px;
+          text-align: center;
+          color: rgb(132, 219, 245);
+          background-color: #310615;
+        }
+    
+        .abas button {
+          padding: 10px 20px;
+          margin: 0 5px;
+          font-size: 16px;
+          cursor: pointer;
+        }
+    
+        .conteudo {
+          display: none;
+          margin-top: 20px;
+          padding: 20px;
+          border: 1px solid #ccc;
+          background: #3a0303;
+        }
+    
+        .ativo {
+          display: block;
+        }
+      </style>
+    </head>
+    <body>
+    
+      <h1>Minhas Abas</h1>
+    
+      <div class="abas">
+        <button onclick="abrirAba('aba1')">Aba 1</button>
+        <button onclick="abrirAba('aba2')">Aba 2</button>
+        <button onclick="abrirAba('aba3')">Aba 3</button>
+      </div>
+    
+      <div id="aba1" class="conteudo ativo">
+        <h2>Aba 1</h2>
+        <p>To apanhando pra fazer esses exercícios</p>
+      </div>
+    
+      <div id="aba2" class="conteudo">
+        <h2>Aba 2</h2>
+        <p>Quero ser melhor em programação</p>
+      </div>
+    
+      <div id="aba3" class="conteudo">
+        <h2>Aba 3</h2>
+        <p>Não aguento maiiisss</p>
+      </div>
+    
+      <script>
+        function abrirAba(id) {
+          const todasAbas = document.querySelectorAll('.conteudo');
+          todasAbas.forEach(aba => aba.classList.remove('ativo'));
+          document.getElementById(id).classList.add('ativo');
+        }
+      </script>
+    
+    </body>
+    </html>
